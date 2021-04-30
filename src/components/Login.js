@@ -14,11 +14,13 @@ export default function Login(props) {
                 <div className="col-md-12 col-sm-12">
                     <div class="card-body">
 
-                        
+                        <div className="input-group mb-4">
+                            <input type="text" className="form-control" placeholder="Email" aria-label="Username" />
+                        </div>
 
     
 
-                        <div className="input-group mb-3">
+                        <div className="input-group mb-4">
                             <input type="text" className="form-control" placeholder="Password" aria-label="Password" />
                         </div>
 
@@ -29,7 +31,7 @@ export default function Login(props) {
                                 <p>Support: Eric@Sparks3DDesigns.com</p>
                             </div>
                         </div>
-
+                        
                     </div>
                 </div>
             </div>

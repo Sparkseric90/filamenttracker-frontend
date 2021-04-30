@@ -1,5 +1,6 @@
 import './App.css';
-import Login from './components/Login'
+import Login from './components/Login';
+import Main from './components/Main';
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,6 +18,7 @@ export default function App() {
           <Route exact={true} path="/">
             <Login />
           </Route>
+            <Main />
         </Switch>
       </Router>
     </div>
