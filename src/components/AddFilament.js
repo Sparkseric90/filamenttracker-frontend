@@ -3,7 +3,7 @@ import FilamentService from "../services/FilamentService";
 
 const AddFilament = () => {
   const initialFilamentState = {
-    brand: '',
+    brand: "",
     type: "",
     color: "",
     numberofrolls: "",
@@ -19,22 +19,23 @@ const AddFilament = () => {
     setFilament({ ...filament, [name]: value });
   };
 
-  const saveFilament = () => {
+  const saveFilament = (e) => {
     var data = {
       brand: filament.brand,
-      title: filament.title,
+      type: filament.type,
       color: filament.color,
       numberofrolls: filament.numberofrolls,
       weight: filament.weight,
       notes: filament.notes,
       status: filament.status
     };
+    e.preventDefault()
 
     FilamentService.create(data)
       .then(response => {
         setFilament({
           brand: response.data.id,
-          type: response.data.title,
+          type: response.data.type,
           color: response.data.description,
           numberofrolls: response.data.numberofrolls,
           weight: response.data.weight,
@@ -64,7 +65,7 @@ const AddFilament = () => {
           </button>
         </div>
       ) : (
-        <div>
+        <form onSubmit={saveFilament}>
 
           <div className="form-group">
             <label htmlFor="title">Brand</label>
@@ -75,7 +76,7 @@ const AddFilament = () => {
               required
               value={filament.brand}
               onChange={handleInputChange}
-              name="title"
+              name="brand"
             />
           </div>
 
@@ -84,11 +85,11 @@ const AddFilament = () => {
             <input
               type="text"
               className="form-control"
-              id="title"
+              id="type"
               required
               value={filament.type}
               onChange={handleInputChange}
-              name="title"
+              name="type"
             />
           </div>
 
@@ -97,11 +98,11 @@ const AddFilament = () => {
             <input
               type="text"
               className="form-control"
-              id="title"
+              id="color"
               required
               value={filament.color}
               onChange={handleInputChange}
-              name="title"
+              name="color"
             />
           </div>
 
@@ -110,11 +111,11 @@ const AddFilament = () => {
             <input
               type="text"
               className="form-control"
-              id="title"
+              id="numberofrolls"
               required
               value={filament.numberofrolls}
               onChange={handleInputChange}
-              name="title"
+              name="numberofrolls"
             />
           </div>
 
@@ -123,11 +124,11 @@ const AddFilament = () => {
             <input
               type="text"
               className="form-control"
-              id="title"
+              id="weight"
               required
               value={filament.weight}
               onChange={handleInputChange}
-              name="title"
+              name="weight"
             />
           </div>
 
@@ -136,31 +137,31 @@ const AddFilament = () => {
             <input
               type="text"
               className="form-control"
-              id="description"
+              id="notes"
               required
               value={filament.notes}
               onChange={handleInputChange}
-              name="description"
+              name="notes"
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="title">Status</label>
+            <label htmlFor="description">Status</label>
             <input
               type="text"
               className="form-control"
-              id="title"
+              id="status"
               required
               value={filament.status}
               onChange={handleInputChange}
-              name="title"
+              name="status"
             />
           </div>
 
-          <button onClick={saveFilament} className="btn btn-success">
+          <button type="submit" className="btn btn-success">
             Submit
           </button>
-        </div>
+        </form>
       )}
     </div>
   );

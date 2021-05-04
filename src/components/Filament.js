@@ -88,8 +88,8 @@ const Filament = props => {
               <input
                 type="text"
                 className="form-control"
-                id="title"
-                name="title"
+                id="brand"
+                name="brand"
                 value={currentFilament.brand}
                 onChange={handleInputChange}
               />
@@ -99,8 +99,8 @@ const Filament = props => {
               <input
                 type="text"
                 className="form-control"
-                id="title"
-                name="title"
+                id="type"
+                name="type"
                 value={currentFilament.type}
                 onChange={handleInputChange}
               />
@@ -110,8 +110,8 @@ const Filament = props => {
               <input
                 type="text"
                 className="form-control"
-                id="description"
-                name="description"
+                id="color"
+                name="color"
                 value={currentFilament.color}
                 onChange={handleInputChange}
               />
@@ -121,8 +121,8 @@ const Filament = props => {
               <input
                 type="text"
                 className="form-control"
-                id="description"
-                name="description"
+                id="numberofrolls"
+                name="numberofrolls"
                 value={currentFilament.numberofrolls}
                 onChange={handleInputChange}
               />
@@ -132,8 +132,8 @@ const Filament = props => {
               <input
                 type="text"
                 className="form-control"
-                id="description"
-                name="description"
+                id="weight"
+                name="weight"
                 value={currentFilament.weight}
                 onChange={handleInputChange}
               />
@@ -143,8 +143,8 @@ const Filament = props => {
               <input
                 type="text"
                 className="form-control"
-                id="description"
-                name="description"
+                id="notes"
+                name="notes"
                 value={currentFilament.notes}
                 onChange={handleInputChange}
               />
@@ -154,8 +154,8 @@ const Filament = props => {
               <input
                 type="text"
                 className="form-control"
-                id="description"
-                name="description"
+                id="status"
+                name="status"
                 value={currentFilament.status}
                 onChange={handleInputChange}
               />
@@ -175,14 +175,14 @@ const Filament = props => {
               className="badge badge-primary mr-2"
               onClick={() => updatePublished(false)}
             >
-              UnPublish
+              UnOpened
             </button>
           ) : (
             <button
               className="badge badge-primary mr-2"
               onClick={() => updatePublished(true)}
             >
-              Publish
+              Opened
             </button>
           )}
 

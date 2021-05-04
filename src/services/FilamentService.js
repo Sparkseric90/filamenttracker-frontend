@@ -9,19 +9,20 @@ const get = id => {
 };
 
 const create = data => {
-  return http.post("new/1", data);
+  console.log(data)
+  return http.post(`/new`, data);
 };
 
 const update = (id, data) => {
-  return http.put(`/filament/1`, data);
+  return http.put(`/filament/${id}`, data);
 };
 
 const remove = id => {
-  return http.delete(`/delete/1`);
+  return http.delete(`/delete/${id}`);
 };
 
 const removeAll = () => {
-  return http.delete(``);
+  return http.delete(`/deleteall`);
 };
 
 export default {
