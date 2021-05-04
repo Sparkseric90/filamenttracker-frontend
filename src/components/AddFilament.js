@@ -8,8 +8,7 @@ const AddFilament = () => {
     color: "",
     numberofrolls: "",
     weight: "",
-    notes: "",
-    status: ""
+    notes: ""
   };
   const [filament, setFilament] = useState(initialFilamentState);
   const [submitted, setSubmitted] = useState(false);
@@ -26,8 +25,7 @@ const AddFilament = () => {
       color: filament.color,
       numberofrolls: filament.numberofrolls,
       weight: filament.weight,
-      notes: filament.notes,
-      status: filament.status
+      notes: filament.notes
     };
     e.preventDefault()
 
@@ -40,7 +38,6 @@ const AddFilament = () => {
           numberofrolls: response.data.numberofrolls,
           weight: response.data.weight,
           notes: response.data.notes,
-          status: response.data.status
         });
         setSubmitted(true);
         console.log(response.data);
@@ -61,7 +58,7 @@ const AddFilament = () => {
         <div>
           <h4>You submitted successfully!</h4>
           <button className="btn btn-success" onClick={newFilament}>
-            Add
+            Back
           </button>
         </div>
       ) : (
@@ -145,18 +142,7 @@ const AddFilament = () => {
             />
           </div>
 
-          <div className="form-group">
-            <label htmlFor="description">Status</label>
-            <input
-              type="text"
-              className="form-control"
-              id="status"
-              required
-              value={filament.status}
-              onChange={handleInputChange}
-              name="status"
-            />
-          </div>
+
 
           <button type="submit" className="btn btn-success">
             Submit

@@ -5,11 +5,11 @@ const Filament = props => {
   const initialFilamentState = {
     id: "",
     brand: "",
+    type: "",
     color: "",
     numberofrolls: "",
     weight: "",
-    notes: "",
-    status: false
+    notes: ""
   };
   const [currentFilament, setCurrentFilament] = useState(initialFilamentState);
   const [message, setMessage] = useState("");
@@ -34,7 +34,7 @@ const Filament = props => {
     setCurrentFilament({ ...currentFilament, [name]: value });
   };
 
-  const updatePublished = status => {
+  const updateEntry = status => {
     var data = {
       brand: currentFilament.brand,
       type: currentFilament.type,
@@ -42,7 +42,6 @@ const Filament = props => {
       numberofrolls: currentFilament.numberofrolls,
       weight: currentFilament.weight,
       notes: currentFilament.notes,
-      Status: status
     };
 
     FilamentDataService.update(currentFilament.id, data)
@@ -56,7 +55,7 @@ const Filament = props => {
   };
 
   const updateFilament = () => {
-    FilamentDataService.update(currentFilament.id, currentFilament)
+    FilamentDataService.update(currentFilament.id)
       .then(response => {
         console.log(response.data);
         setMessage("The filament was updated successfully!");
@@ -84,7 +83,7 @@ const Filament = props => {
           <h4>Filament</h4>
           <form>
             <div className="form-group">
-              <label htmlFor="title">Brand</label>
+              <label htmlFor="brand">Brand</label>
               <input
                 type="text"
                 className="form-control"
@@ -95,7 +94,7 @@ const Filament = props => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="title">Type</label>
+              <label htmlFor="type">Type</label>
               <input
                 type="text"
                 className="form-control"
@@ -106,7 +105,7 @@ const Filament = props => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="description">Color</label>
+              <label htmlFor="color">Color</label>
               <input
                 type="text"
                 className="form-control"
@@ -117,7 +116,7 @@ const Filament = props => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="description">Number Of Rolls</label>
+              <label htmlFor="numberofrolls">Number Of Rolls</label>
               <input
                 type="text"
                 className="form-control"
@@ -128,7 +127,7 @@ const Filament = props => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="description">Weight</label>
+              <label htmlFor="weight">Weight</label>
               <input
                 type="text"
                 className="form-control"
@@ -139,7 +138,7 @@ const Filament = props => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="description">Notes</label>
+              <label htmlFor="notes">Notes</label>
               <input
                 type="text"
                 className="form-control"
@@ -149,64 +148,32 @@ const Filament = props => {
                 onChange={handleInputChange}
               />
             </div>
-            <div className="form-group">
-              <label htmlFor="description">Status</label>
-              <input
-                type="text"
-                className="form-control"
-                id="status"
-                name="status"
-                value={currentFilament.status}
-                onChange={handleInputChange}
-              />
-            </div>
 
-
-            <div className="form-group">
-              <label>
-                <strong>Status:</strong>
-              </label>
-              {currentFilament.published ? "Published" : "Pending"}
-            </div>
           </form>
 
-          {currentFilament.published ? (
-            <button
-              className="badge badge-primary mr-2"
-              onClick={() => updatePublished(false)}
-            >
-              UnOpened
-            </button>
-          ) : (
-            <button
-              className="badge badge-primary mr-2"
-              onClick={() => updatePublished(true)}
-            >
-              Opened
-            </button>
-          )}
 
-          <button className="badge badge-danger mr-2" onClick={deleteFilament}>
-            Delete
+
+            <button className="badge badge-danger mr-2" onClick={deleteFilament}>
+              Delete
           </button>
 
-          <button
-            type="submit"
-            className="badge badge-success"
-            onClick={updateFilament}
-          >
-            Update
+            <button
+              type="submit"
+              className="badge badge-success"
+              onClick={updateFilament}
+            >
+              Update
           </button>
-          <p>{message}</p>
+            <p>{message}</p>
         </div>
       ) : (
-        <div>
-          <br />
-          <p>Click on a filament to see more info....</p>
-        </div>
+          <div>
+            <br />
+            <p>Click on a filament to see more info....</p>
+          </div>
       )}
-    </div>
-  );
+        </div>
+      );
 };
 
 export default Filament;

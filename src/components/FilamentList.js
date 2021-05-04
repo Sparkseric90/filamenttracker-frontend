@@ -71,12 +71,6 @@ const FilamentList = () => {
             ))}
         </ul>
 
-        <button
-          className="m-3 btn btn-sm btn-danger"
-          onClick={removeAllFilament}
-        >
-          Remove All
-        </button>
       </div>
       <div className="col-md-6">
         {currentFilament ? (
@@ -118,12 +112,7 @@ const FilamentList = () => {
               </label>{" "}
               {currentFilament.notes}
             </div>
-            <div>
-              <label>
-                <strong>Status:</strong>
-              </label>{" "}
-              {currentFilament.status}
-            </div>
+
 
             <Link
               to={"/filament/" + currentFilament.id}

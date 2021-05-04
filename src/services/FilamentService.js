@@ -14,22 +14,22 @@ const create = data => {
 };
 
 const update = (id, data) => {
-  return http.put(`/filament/${id}`, data);
+  return http.post(`/update/${id}`);
 };
 
 const remove = id => {
-  return http.delete(`/delete/${id}`);
+  return http.post(`/delete/${id}`);
 };
 
-const removeAll = () => {
-  return http.delete(`/deleteall`);
-};
+// const removeAll = () => {
+//   return http.post(`/deleteAll`);
+// };
 
 export default {
   getAll,
   get,
   create,
   update,
-  remove,
-  removeAll
+  remove
+  // removeAll
 };
