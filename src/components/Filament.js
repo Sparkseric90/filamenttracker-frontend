@@ -34,7 +34,7 @@ const Filament = props => {
     setCurrentFilament({ ...currentFilament, [name]: value });
   };
 
-  const updateEntry = status => {
+  const updateFilament = status => {
     var data = {
       brand: currentFilament.brand,
       type: currentFilament.type,
@@ -48,22 +48,23 @@ const Filament = props => {
       .then(response => {
         setCurrentFilament({ ...currentFilament, published: status });
         console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  };
-
-  const updateFilament = () => {
-    FilamentDataService.update(currentFilament.id)
-      .then(response => {
-        console.log(response.data);
         setMessage("The filament was updated successfully!");
       })
       .catch(e => {
         console.log(e);
       });
   };
+
+  // const filamentUpdate = () => {
+  //   FilamentDataService.update(currentFilament.id)
+  //     .then(response => {
+  //       console.log(response.data);
+  //       setMessage("The filament was updated successfully!");
+  //     })
+  //     .catch(e => {
+  //       console.log(e);
+  //     });
+  // };
 
   const deleteFilament = () => {
     FilamentDataService.remove(currentFilament.id)
@@ -77,6 +78,7 @@ const Filament = props => {
   };
 
   return (
+    <div className="container4">
     <div>
       {currentFilament ? (
         <div className="edit-form">
@@ -153,27 +155,26 @@ const Filament = props => {
 
 
 
-            <button className="badge badge-danger mr-2" onClick={deleteFilament}>
-              Delete
+          <button className="m-4 position-absolute top-30 start-30 btn btn-danger mr-2" onClick={deleteFilament}>
+            Delete
           </button>
 
-            <button
-              type="submit"
-              className="badge badge-success"
-              onClick={updateFilament}
-            >
-              Update
+
+          <button className="m-4 position-absolute top-30 start-50 btn btn-success mr-2" onClick={updateFilament}>
+            Update
           </button>
-            <p>{message}</p>
+
+          <p>{message}</p>
         </div>
       ) : (
-          <div>
-            <br />
-            <p>Click on a filament to see more info....</p>
-          </div>
-      )}
+        <div>
+          <br />
+          <p>Click on a filament to see more info....</p>
         </div>
-      );
+      )}
+    </div>
+    </div>
+  );
 };
 
 export default Filament;

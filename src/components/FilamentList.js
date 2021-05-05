@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import FilamentDataService from "../services/FilamentService";
 import { Link } from "react-router-dom";
 
+
+
 const FilamentList = () => {
   const [filament, setFilaments] = useState([]);
   const [currentFilament, setCurrentFilament] = useState(null);
@@ -48,30 +50,21 @@ const FilamentList = () => {
 
 
   return (
+//displays Filaments that are located in the database, in a list group.
+<div className="container2">
     <div className="list row">
-      <div className="col-md-8">
-        <div className="input-group mb-3">
-        </div>
-      </div>
-      <div className="col-md-6">
+      <div className="col-md-6 overflow-auto">
         <h4>Filaments</h4>
-
         <ul className="list-group">
           {filament &&
             filament.map((filament, index) => (
-              <li
-                className={
-                  "list-group-item " + (index === currentIndex ? "active" : "")
-                }
-                onClick={() => setActiveFilament(filament, index)}
-                key={index}
-              >
-                {filament.id + filament.brand}
-              </li>
+              <li className={"list-group-item " + (index === currentIndex ? "active" : "")} onClick={() => setActiveFilament(filament, index)} key={index}>{filament.brand}</li>
             ))}
         </ul>
-
       </div>
+
+
+      
       <div className="col-md-6">
         {currentFilament ? (
           <div>
@@ -113,13 +106,9 @@ const FilamentList = () => {
               {currentFilament.notes}
             </div>
 
+            <Link to={"/filament/" + currentFilament.id} className="btn btn-secondary">Edit</Link>
 
-            <Link
-              to={"/filament/" + currentFilament.id}
-              className="badge badge-danger"
-            >
-              Edit
-            </Link>
+
           </div>
         ) : (
           <div>
@@ -129,6 +118,7 @@ const FilamentList = () => {
         )}
       </div>
     </div>
+</div>
   );
 };
 
