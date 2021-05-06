@@ -1,7 +1,24 @@
+.list-group-item{
+  max-height: 300px;
+  overflow:scroll;
+}
+
+.text-center{
+  padding:-1rem;
+  margin:.5rem;
+  margin-top:-3rem;
+  padding-bottom:1rem;
+  
+}
+
+
+
+
 .list {
   text-align: left;
   max-width: 750px;
   margin: auto;
+  
 }
 
 .submit-form {

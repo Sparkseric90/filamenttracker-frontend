@@ -1,35 +1,35 @@
-import http from "../http-common";
+import https from "../http-common";
 
 const getAll = () => {
-  return http.get("/all");
+  return https.get("/all");
 };
 
 const get = id => {
-  return http.get(`/${id}`);
+  return https.get(`/${id}`);
 };
 
 const create = data => {
   console.log(data)
-  return http.post(`/new`, data);
+  return https.post(`/new`, data);
 };
 
 const update = (id, data) => {
-  return http.put(`/filament/${id}`, data);
+  return https.post(`/update/${id}`, data);
 };
 
 const remove = id => {
-  return http.delete(`/delete/${id}`);
+  return https.post(`/delete/${id}`);
 };
 
-const removeAll = () => {
-  return http.delete(`/deleteall`);
-};
+// const removeAll = () => {
+//   return http.post(`/deleteAll`);
+// };
 
 export default {
   getAll,
   get,
   create,
   update,
-  remove,
-  removeAll
+  remove
+  // removeAll
 };
