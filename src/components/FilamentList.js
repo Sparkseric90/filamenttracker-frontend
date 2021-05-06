@@ -51,7 +51,7 @@ const FilamentList = () => {
 
   return (
 //displays Filaments that are located in the database, in a list group.
-<div className="container2">
+
     <div className="list row">
       <div className="col-md-6 overflow-auto">
         <h4>Filaments</h4>
@@ -118,7 +118,7 @@ const FilamentList = () => {
         )}
       </div>
     </div>
-</div>
+
   );
 };
 

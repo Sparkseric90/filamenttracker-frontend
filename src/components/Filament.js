@@ -78,11 +78,11 @@ const Filament = props => {
   };
 
   return (
-    <div className="container4">
+    
     <div>
       {currentFilament ? (
         <div className="edit-form">
-          <h4>Filament</h4>
+          <h4>Edit Filament</h4>
           <form>
             <div className="form-group">
               <label htmlFor="brand">Brand</label>
@@ -173,7 +173,7 @@ const Filament = props => {
         </div>
       )}
     </div>
-    </div>
+    
   );
 };
 
