@@ -21,15 +21,10 @@ const remove = id => {
   return https.post(`/delete/${id}`);
 };
 
-// const removeAll = () => {
-//   return http.post(`/deleteAll`);
-// };
-
 export default {
   getAll,
   get,
   create,
   update,
   remove
-  // removeAll
 };

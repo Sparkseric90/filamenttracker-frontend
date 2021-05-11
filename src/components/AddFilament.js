@@ -54,8 +54,7 @@ const AddFilament = () => {
 
     return (
 
-      // Displays the successful message if the filament was correctly added into the database.
-      
+
         <div className="submit-form">
           {submitted ? (
             <div>
@@ -156,7 +155,6 @@ const AddFilament = () => {
 
           )}
         </div>
-        
       );
     };
     

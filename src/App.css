@@ -1,8 +1,3 @@
-.list-group-item{
-  max-height: 300px;
-  overflow:scroll;
-}
-
 .text-center{
   padding:-1rem;
   margin:.5rem;
@@ -12,14 +7,26 @@
 }
 
 
-
-
 .list {
   text-align: left;
   max-width: 750px;
   margin: auto;
   
 }
+
+.list-group-item{
+  max-height: 300px;
+  overflow:scroll;
+  border-color: black;
+  align-items: center;
+}
+
+.list-group-item.active {
+  background-color: rgb(216, 0, 0);
+  border-color: rgb(7, 7, 7);
+  
+}
+
 
 .submit-form {
   max-width: 300px;
