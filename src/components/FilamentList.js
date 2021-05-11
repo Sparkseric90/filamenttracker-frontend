@@ -50,74 +50,74 @@ const FilamentList = () => {
 
 
   return (
-//displays Filaments that are located in the database, in a list group.
+    //displays Filaments that are located in the database, in a list group.
 
-    <div className="list row">
-      <div className="col-md-6 overflow-auto">
-        <h4>Filaments</h4>
-        <ul className="list-group">
-          {filament &&
-            filament.map((filament, index) => (
-              <li className={"list-group-item " + (index === currentIndex ? "active" : "")} onClick={() => setActiveFilament(filament, index)} key={index}>{filament.brand}</li>
-            ))}
-        </ul>
+      <div className="list row">
+        <div className="col-md-6 overflow-auto">
+          <h4>Filaments</h4>
+          <ul className="list-group">
+            {filament &&
+              filament.map((filament, index) => (
+                <li className={"list-group-item " + (index === currentIndex ? "active" : "")} onClick={() => setActiveFilament(filament, index)} key={index}>{filament.brand}</li>
+              ))}
+          </ul>
+        </div>
+
+
+              {/* Displays the information of the Filament stored inside the database */}
+        <div className="col-md-6">
+          {currentFilament ? (
+            <div>
+              <h4>Information</h4>
+              <div>
+                <label>
+                  <strong>Brand:</strong>
+                </label>{" "}
+                {currentFilament.brand}
+              </div>
+              <div>
+                <label>
+                  <strong>Type:</strong>
+                </label>{" "}
+                {currentFilament.type}
+              </div>
+              <div>
+                <label>
+                  <strong>Color:</strong>
+                </label>{" "}
+                {currentFilament.color}
+              </div>
+              <div>
+                <label>
+                  <strong>Number Of Rolls:</strong>
+                </label>{" "}
+                {currentFilament.numberofrolls}
+              </div>
+              <div>
+                <label>
+                  <strong>Weight:</strong>
+                </label>{" "}
+                {currentFilament.weight}
+              </div>
+              <div>
+                <label>
+                  <strong>Notes:</strong>
+                </label>{" "}
+                {currentFilament.notes}
+              </div>
+
+              <Link to={"/filament/" + currentFilament.id} className="btn btn-secondary">Edit</Link>
+
+
+            </div>
+          ) : (
+            <div>
+              <br />
+              <p>Please click on a Filament to see more info...</p>
+            </div>
+          )}
+        </div>
       </div>
-
-
-      
-      <div className="col-md-6">
-        {currentFilament ? (
-          <div>
-            <h4>Information</h4>
-            <div>
-              <label>
-                <strong>Brand:</strong>
-              </label>{" "}
-              {currentFilament.brand}
-            </div>
-            <div>
-              <label>
-                <strong>Type:</strong>
-              </label>{" "}
-              {currentFilament.type}
-            </div>
-            <div>
-              <label>
-                <strong>Color:</strong>
-              </label>{" "}
-              {currentFilament.color}
-            </div>
-            <div>
-              <label>
-                <strong>Number Of Rolls:</strong>
-              </label>{" "}
-              {currentFilament.numberofrolls}
-            </div>
-            <div>
-              <label>
-                <strong>Weight:</strong>
-              </label>{" "}
-              {currentFilament.weight}
-            </div>
-            <div>
-              <label>
-                <strong>Notes:</strong>
-              </label>{" "}
-              {currentFilament.notes}
-            </div>
-
-            <Link to={"/filament/" + currentFilament.id} className="btn btn-secondary">Edit</Link>
-
-
-          </div>
-        ) : (
-          <div>
-            <br />
-            <p>Please click on a Filament to see more info...</p>
-          </div>
-        )}
-      </div>
-    </div>
 
   );
 };
