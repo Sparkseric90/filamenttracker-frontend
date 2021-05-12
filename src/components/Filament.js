@@ -14,6 +14,7 @@ const Filament = props => {
   const [currentFilament, setCurrentFilament] = useState(initialFilamentState);
   const [message, setMessage] = useState("");
 
+  //pulls in the filaments information thats store in the DB.
   const getFilament = id => {
     FilamentDataService.get(id)
       .then(response => {
@@ -34,6 +35,8 @@ const Filament = props => {
     setCurrentFilament({ ...currentFilament, [name]: value });
   };
 
+
+  //Function that allows you to make changes in the input boxes and then save them.
   const updateFilament = status => {
     var data = {
       brand: currentFilament.brand,
@@ -56,17 +59,8 @@ const Filament = props => {
       });
   };
 
-  // const filamentUpdate = () => {
-  //   FilamentDataService.update(currentFilament.id)
-  //     .then(response => {
-  //       console.log(response.data);
-  //       setMessage("The filament was updated successfully!");
-  //     })
-  //     .catch(e => {
-  //       console.log(e);
-  //     });
-  // };
 
+  //Delete function. When your seeing or making changes to a filament, This allows you to delete it from the database.
   const deleteFilament = () => {
     FilamentDataService.remove(currentFilament.id)
       .then(response => {

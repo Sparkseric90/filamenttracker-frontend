@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FilamentService from "../services/FilamentService";
 
+
 const AddFilament = () => {
     const initialFilamentState = {
         brand: "",
@@ -18,6 +19,8 @@ const AddFilament = () => {
         setFilament({...filament, [name]: value });
     };
 
+
+    //Setting up the function to get the input boxes listening for data to work with the Submit button.
     const saveFilament = (e) => {
         var data = {
             brand: filament.brand,
