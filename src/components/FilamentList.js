@@ -14,7 +14,7 @@ const FilamentList = () => {
     retrieveFilament();
   }, []);
 
-
+  //Pulls in all the filaments that's stored in the DB
   const retrieveFilament = () => {
     FilamentDataService.getAll()
       .then(response => {
